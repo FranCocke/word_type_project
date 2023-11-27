@@ -28,7 +28,7 @@ class CharContainer:
         )
 
     # si se encuentra un split_point por la function find del objeto
-    # etonces se returna una tupla con dos objetos char_line
+    # etonces se returna una tupla con dos objetos CharContainer
     # si no se encuentra se devuelve false como segundo value de la tupla
     # que sirve para validar si se debe ejecutar una vuelta del ciclo en split de silabizer
     def split_by(self, finder:str, where:int) -> tuple[Self, Self] | tuple[Self, bool]:

@@ -1,6 +1,8 @@
-
-V_STRONG = ["a", "á", "e", "é", "o", "ó", "í", "ú"]
-V_WEEK = ["i", "u", "ü"]
+V_TILDE = ["á", "é", "ó", "í", "ú"]
+V_NORMAL = ["a", "e", "i", "o", "u"]
+V_FUERTE = ["a", "á", "e", "é", "o", "ó", "í", "ú"]
+V_DEBIL = ["i", "u", "ü"]
+DEBIL_TERMINACION = ["n", "s", "a", "e", "i", "o", "u", "ts"]
 
 RULES = [
     ("VV", 1),
