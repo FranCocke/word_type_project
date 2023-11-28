@@ -4,9 +4,8 @@ from functions import *
 class WordContainer():
     def __init__(self, word:str) -> None:
         self.word = word
-        self.char_container = CharContainer(word)
         self.silabs_container = SylabsContainer()
-        self.silabas = self.silabs_container(self.char_container)
+        self.silabas = self.silabs_container(word)
         self.get_type()
 
     def get_type(self):
