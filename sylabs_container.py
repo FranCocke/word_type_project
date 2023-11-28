@@ -1,8 +1,10 @@
 from char_container import CharContainer
 from functions import *
+
+
 class SylabsContainer:
     # itera por cada rule para separar y las envia como parametros a las funciones de char_line
-    def split(self, chars:CharContainer) -> list[str]:
+    def split(self, chars: CharContainer) -> list[str]:
         for split_rule, where in RULES:
             # obtiene char_line, char_line
             # o obtiene char_line, False
@@ -15,16 +17,15 @@ class SylabsContainer:
                 # y se va a seguir buscando una regla que separe correctamente la plabara
 
                 # si una de las dos parte es un single rule se salta la iteración
-                if (
-                    first.type_line in SINGLE_RULES
-                    or second.type_line in SINGLE_RULES
-                ):
+                if first.type_line in SINGLE_RULES or second.type_line in SINGLE_RULES:
                     continue
 
                 # si la ultima letra de la primera parte es consonate
                 # y la primera de la segunda parte es una l o una r
                 # salta la iteración
-                if last_is_consontant(first.type_line) and is_one_of(word=second.word, position=0, letters=['l', 'r']):
+                if last_is_consontant(first.type_line) and is_one_of(
+                    word=second.word, position=0, letters=["l", "r"]
+                ):
                     continue
 
                 # si la primera letra y la ultima son l se salta la iteración
@@ -43,7 +44,6 @@ class SylabsContainer:
                 # son las sumas de las silabas de la primera parte más las sumas de las silabas de la seguna
                 return self.split(first) + self.split(second)
         return [chars.word]
-
 
     def __call__(self, word):
         return self.split(CharContainer(word))
