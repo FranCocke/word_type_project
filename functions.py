@@ -35,7 +35,9 @@ def has_tilde(silabas: list) -> bool:
 
 
 def ends_with_mente(silabas: list) -> bool:
-    return (silabas[-2] + silabas[-1]) == "mente"
+    if len(silabas) > 2:
+        return (silabas[-2] + silabas[-1]) == "mente"
+    return False
 
 
 def es_aguda(silabas: list) -> tuple[bool, str]:
@@ -47,14 +49,15 @@ def es_aguda(silabas: list) -> tuple[bool, str]:
 
 
 def es_grave(silabas: list) -> tuple[bool, str]:
-    if has_tilde(silabas[-2]):
-        return True, silabas[-2]
-    if (
-        not has_tilde(silabas)
-        and silabas[-1][-1] in DEBIL_TERMINACION
-        and not ends_with_mente(silabas)
-    ):
-        return True, silabas[-2]
+    if len(silabas) >= 2:
+        if has_tilde(silabas[-2]):
+            return True, silabas[-2]
+        if (
+            not has_tilde(silabas)
+            and silabas[-1][-1] in DEBIL_TERMINACION
+            and not ends_with_mente(silabas)
+        ):
+            return True, silabas[-2]
     return False, ""
 
 

@@ -33,6 +33,11 @@ class WordContainer:
             self.word_type = "sobreesdrújula"
             self.silaba_tonica = word_type[1]
             return
+        
+        # si la palabra solamente tiene una silabra (nexos, preposiciones)
+        # se le asigna el tipo aguda y la silaba tónica es la palabra misma
+        self.word_type = "aguda"
+        self.silaba_tonica = self.word
 
     @staticmethod
     def sanitize_sentence(sentence: str) -> list:
