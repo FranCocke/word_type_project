@@ -30,48 +30,41 @@ def has_tilde(silabas:list) -> bool:
                 return True
     return False
 
-def ends_with_ts(silabas:list) -> bool:
-    return silabas[-1][-1:-3] == "ts"
-
 def ends_with_mente(silabas:list) -> bool:
     return (silabas[-2] + silabas[-1]) == "mente"
 
 
-def es_aguda(silabas:list) -> bool:
-    for char in silabas[-1]:
-        if char in V_TILDE:
-            return True
+def es_aguda(silabas:list) -> tuple[bool, str]:
+    if has_tilde(silabas[-1]):
+        return True, silabas[-1]
     if not has_tilde(silabas) and silabas[-1][-1] not in DEBIL_TERMINACION:
-        return True
-    return False
+        return True, silabas[-1]
+    return False, ""
 
-def es_grave(silabas:list) -> bool:
-    for char in silabas[-2]:
-        if char in V_TILDE:
-            return True
+def es_grave(silabas:list) -> tuple[bool, str]:
+    if has_tilde(silabas[-2]):
+        return True, silabas[-2]
     if not has_tilde(silabas) and silabas[-1][-1] in DEBIL_TERMINACION and not ends_with_mente(silabas):
-        return True
-    return False
+        return True, silabas[-2]
+    return False, ""
 
-def es_esdrujula(silabas:list) -> bool:
+def es_esdrujula(silabas:list) -> tuple[bool, str]:
     if len(silabas) > 3:
-        for letra in silabas[-3]:
-            if letra in V_TILDE:
-                return True
+        if has_tilde(silabas[-3]):
+            return True, silabas[-3]
     if ends_with_mente(silabas) and not has_tilde(silabas) and es_aguda(silabas[:-2]):
-        return True
-    return False
+        return True, silabas[-3]
+    return False, ""
 
-def es_sobreesdrujula(silabas:list) -> bool:
+def es_sobreesdrujula(silabas:list) -> tuple[bool, str]:
     if len(silabas) > 3:
-        for letra in silabas[-4]:
-            if letra in V_TILDE:
-                return True
+        if has_tilde(silabas[-4]):
+            return True, silabas[-4]
     if len(silabas) > 4:
-        for letra in silabas[-5]:
-            if letra in V_TILDE:
-                return True
+        if has_tilde(silabas[-5]):
+            return True, silabas[-5]
 
     if ends_with_mente(silabas) and not has_tilde(silabas) and es_grave(silabas[:-2]):
-        return True
-    return False
+        return True, silabas[-5]
+
+    return False, ""
