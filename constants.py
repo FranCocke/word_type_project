@@ -23,3 +23,17 @@ RULES = [
 ]
 
 SINGLE_RULES = ["c", "s", "x", "cs"]
+
+WORD_TYPES = {
+    "SOBREESDRUJULA": "SOBREESDRÚJULA",
+    "ESDRUJULA": "ESDRÚJULA",
+    "GRAVE": "GRAVE",
+    "AGUDA": "AGUDA",
+}
+
+RULES_EXPLANATIONS = {
+    "ESDRUJULA": "Las palabras en las que su sílaba tónica es la antepenúltima",
+    "SOBREESDRUJULA": "Las palabras en las que su sílaba tónica es la ante-antepenúltima",
+    "GRAVE": "Las palabras en las que su sílaba tónica es la penúltima",
+    "AGUDA": "Las palabras en las que su sílaba tónica es la útlima"
+}

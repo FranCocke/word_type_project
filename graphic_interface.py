@@ -6,7 +6,7 @@ from typing import List
 class UI:
     def __init__(self) -> None:
         self.window = tk.Tk()
-        self.window.geometry("1080x720")
+        self.window.geometry("1820x720")
         self.words: List[WordContainer] = []
         self.create_main_objects()
 
@@ -66,10 +66,19 @@ class UI:
             font="#fff",
             fg="#fff",
         )
+        title5 = tk.Label(
+            self.table_frame,
+            text="regla",
+            width=30,
+            background="#000",
+            font="#fff",
+            fg="#fff",
+        )
         title1.grid(row=0, column=0)
         title2.grid(row=0, column=1)
         title3.grid(row=0, column=2)
         title4.grid(row=0, column=3)
+        title5.grid(row=0, column=4)
 
     def append_word(self) -> None:
         words = WordContainer.sanitize_sentence(self.entry_text.get())
@@ -100,9 +109,15 @@ class UI:
             )
             label_type.grid(row=index + 1, column=3)
 
+            label_rule = tk.Label(
+                self.table_labels, text=word.rule_explanation, width=45, fg="#000"
+            )
+            label_rule.grid(row=index + 1, column=4)
+
     def reset_words(self) -> None:
         self.words.clear()
         for widget in self.table_labels.winfo_children():
             if isinstance(widget, tk.Label):
                 widget.destroy()
         self.draw_words()
+

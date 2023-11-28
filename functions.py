@@ -62,7 +62,7 @@ def es_grave(silabas: list) -> tuple[bool, str]:
 
 
 def es_esdrujula(silabas: list) -> tuple[bool, str]:
-    if len(silabas) > 3:
+    if len(silabas) >= 3:
         if has_tilde(silabas[-3]):
             return True, silabas[-3]
     if ends_with_mente(silabas) and not has_tilde(silabas) and es_aguda(silabas[:-2]):
