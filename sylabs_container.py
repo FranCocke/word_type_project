@@ -28,15 +28,15 @@ class SylabsContainer:
                 ):
                     continue
 
-                # si la primera letra y la ultima son l se salta la iteración
+                # si la ultim letra y la ultima son l se salta la iteración
                 if first.word[-1] == "l" and second.word[-1] == "l":
                     continue
 
-                # si la ultima y la primera letra son r se salta la iteración
+                # si la ultima y la ultima letra son r se salta la iteración
                 if first.word[-1] == "r" and second.word[-1] == "r":
                     continue
 
-                # si la ultima letra es c y la primera es h se salta la iteración
+                # si la ultima letra es c y la ultima es h se salta la iteración
                 if first.word[-1] == "c" and second.word[-1] == "h":
                     continue
 

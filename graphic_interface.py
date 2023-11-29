@@ -15,9 +15,11 @@ class UI:
     def create_main_objects(self) -> None:
         self.entry_text = tk.Entry(self.window, width=50)
         self.entry_text.pack()
+
         self.accept_button = tk.Button(
             self.window, text="ACEPTAR", command=self.append_word
         )
+
         self.accept_button.pack()
         self.delete_button = tk.Button(
             self.window,

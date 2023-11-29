@@ -6,9 +6,9 @@ TypesOfLetter = Literal["V", "v", "x", "s", "c"]
 
 def char_type(char: str) -> TypesOfLetter:
     if char in V_FUERTE:
-        return "V"  # strong vowel
+        return "V" 
     if char in V_DEBIL:
-        return "v"  # week vowel
+        return "v" 
     if char == "x":
         return "x"
     if char == "s":

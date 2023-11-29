@@ -56,7 +56,7 @@ class WordContainer:
         sanitized_words = list()
         for word in words:
             for char in word:
-                if char in set([",", ".", ":", ";"]):
+                if char in set([",", ".", ":", ";", "?", "¿"]):
                     word = word[:word.find(char)] + word[word.find(char) + 1:]
             sanitized_words.append(word.lower())
         return sanitized_words
