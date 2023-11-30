@@ -6,8 +6,8 @@ class SylabsContainer:
     # itera por cada rule para separar y las envia como parametros a las funciones de char_line
     def split(self, chars: CharContainer) -> list[str]:
         for split_rule, where in RULES:
-            # obtiene char_line, char_line
-            # o obtiene char_line, False
+            # obtiene CharContainer, CharContainer
+            # o obtiene CharContainer, False
             first, second = chars.split_by(split_rule, where)
 
             # si second no es False se ejecuta

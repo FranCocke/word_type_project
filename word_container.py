@@ -8,6 +8,9 @@ class WordContainer:
         self.word = word
         self.silabs_container = SylabsContainer()
         self.silabas = self.silabs_container(word)
+        self.silabas_counter = len(self.silabas)
+        self.vocales = count_vocals(self.word)
+        self.consonantes = count_consonants(self.word)
         self.get_type()
         self.get_explanation_type()
 
@@ -56,7 +59,7 @@ class WordContainer:
         sanitized_words = list()
         for word in words:
             for char in word:
-                if char in set([",", ".", ":", ";", "?", "¿"]):
+                if char in set([",", ".", ":", ";", "?", "¿", "!", "¡"]):
                     word = word[:word.find(char)] + word[word.find(char) + 1:]
             sanitized_words.append(word.lower())
         return sanitized_words

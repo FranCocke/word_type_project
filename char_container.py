@@ -17,7 +17,7 @@ class CharContainer:
         # escribe la plabara segun el tipo de las letras
         self.type_line = "".join(chartype for _, chartype in self.char_line)
 
-    # devuelve dos clases char_line desde la posicion 0 hasta
+    # devuelve dos clases CharContainer desde la posicion 0 hasta
     # la posicion en que se encuentra la rule para separar
     # más la posicion en que se debe separar segun la rule
     # y la otra parte es el resto
@@ -39,3 +39,7 @@ class CharContainer:
             chl1, chl2 = self.split(split_point, where)
             return chl1, chl2
         return self, False
+
+char = CharContainer("hola")
+print(char.char_line)
+print(char.type_line)

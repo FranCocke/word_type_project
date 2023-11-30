@@ -71,7 +71,7 @@ class UI:
         title5 = tk.Label(
             self.table_frame,
             text="regla",
-            width=30,
+            width=45,
             background="#000",
             font="#fff",
             fg="#fff",
@@ -97,7 +97,7 @@ class UI:
             label_word.grid(row=index + 1, column=0)
 
             label_silabas = tk.Label(
-                self.table_labels, text=word.silabas, width=30, fg="#000"
+                self.table_labels, text=f"{word.silabas}\n Tiene {word.consonantes} consonantes.\n Tiene {word.vocales} vocales. \n Tiene {word.silabas_counter} silabas", width=30, fg="#000"
             )
             label_silabas.grid(row=index + 1, column=1)
 
@@ -112,7 +112,7 @@ class UI:
             label_type.grid(row=index + 1, column=3)
 
             label_rule = tk.Label(
-                self.table_labels, text=word.rule_explanation, width=45, fg="#000"
+                self.table_labels, text=word.rule_explanation, width=50, fg="#000"
             )
             label_rule.grid(row=index + 1, column=4)
 

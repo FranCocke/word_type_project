@@ -15,6 +15,27 @@ def char_type(char: str) -> TypesOfLetter:
         return "s"
     else:
         return "c"
+        
+def is_vocal(letter:str) -> bool:
+    return True if letter in VOCALES else False
+
+def is_consonant(letter:str)-> bool:
+    return True if letter in CONSONANTES else False
+
+def count_vocals(word:str) -> int:
+    vocals_counter = 0
+    for letter in word:
+        if is_vocal(letter):
+            vocals_counter += 1
+    return vocals_counter
+
+def count_consonants(word:str)-> int:
+    consonants_counter = 0
+    for letter in word:
+        if is_consonant(letter):
+            consonants_counter += 1
+    return consonants_counter
+
 
 
 # devuelve la posisicion si se encuentra una rule de separado
